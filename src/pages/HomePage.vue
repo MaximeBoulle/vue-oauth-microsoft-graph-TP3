@@ -2,7 +2,12 @@
     <div class="home-page">
         <h1>Welcome to the Home Page</h1>
         <p>This is a simple home page for your Vue.js application.</p>
-        <BaseButton>Click me!</BaseButton>
+        <div class="buttons">
+            <BaseButton>BaseButton</BaseButton>
+            <BaseButton disabled="true">BaseButton disabled</BaseButton>
+            <BaseButton color="orange">BaseButton with color props</BaseButton>
+            <BaseButton color="red">BaseButton with color props</BaseButton>
+        </div>
     </div>
 </template>
 
@@ -10,6 +15,12 @@
 
 .home-page{
     min-height: 80vh;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 </style>

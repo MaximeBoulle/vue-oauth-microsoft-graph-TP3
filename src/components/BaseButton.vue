@@ -1,5 +1,5 @@
 <template>
-    <v-btn :disabled="isDisabled" @click="click">
+    <v-btn :disabled="disabled" :style="{ backgroundColor: color }" @click="click">
         <slot></slot>
     </v-btn>
 </template>
@@ -7,6 +7,17 @@
 <script>
 export default {
     name: 'BaseButton',
+    props: {
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+        color: {
+            type: String,
+            default: 'primary',
+        },
+
+    },
 
     data() {
         return {
