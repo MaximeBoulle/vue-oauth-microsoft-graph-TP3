@@ -1,7 +1,7 @@
 <template>
-    <v-footer class="bg-indigo-lighten-1 text-center d-flex flex-column">
+    <v-footer class="bg-indigo-lighten-1 text-center flex-column">
   
-      <div class="pt-0">
+      <div class="">
         This is a footer
       </div>
     

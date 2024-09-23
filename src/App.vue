@@ -1,6 +1,6 @@
 <template>
   <BaseLayout>
-    <HomePage />
+    <HomePage/>
   </BaseLayout>
 </template>
 
@@ -8,6 +8,7 @@
 
 import BaseLayout from './pages/BaseLayout.vue'
 import HomePage from './pages/HomePage.vue';
+
 
 export default {
   name: 'App',
