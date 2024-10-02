@@ -1,10 +1,13 @@
 <template>
-    <v-btn :disabled="isDisabled" :style="{ backgroundColor: color }" @click="click">
+    <BaseButton :disabled="isDisabled" @click="click">
         <slot></slot>
-    </v-btn>
+    </BaseButton>
 </template>
 
 <script>
+
+import BaseButton from '@/components/BaseButton.vue';
+
 export default {
     name: 'AsyncButton',
     props: {
@@ -32,6 +35,9 @@ export default {
         async wait(time) {
             await new Promise(resolve => setTimeout(resolve, time));
         }
+    },
+    components: {
+        BaseButton
     }
 };
 </script>

@@ -39,9 +39,7 @@ export default {
         AsyncButton
   },
     methods: {
-        async wait(time) {
-        await new Promise(resolve => setTimeout(resolve, time));
-        }
+
     }
 }
 </script>
