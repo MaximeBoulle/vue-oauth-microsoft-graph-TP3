@@ -3,10 +3,11 @@
         <h1>Welcome to the Home Page</h1>
         <p>This is a simple home page for your Vue.js application.</p>
         <div class="buttons">
-            <BaseButton>BaseButton</BaseButton>
+            <BaseButton >BaseButton</BaseButton>
             <BaseButton disabled="true">BaseButton disabled</BaseButton>
-            <BaseButton color="orange">BaseButton with color props</BaseButton>
-            <BaseButton color="red">BaseButton with color props</BaseButton>
+            <BaseButton color="orange " >BaseButton with color props</BaseButton>
+            <BaseButton color="red" >BaseButton with color props</BaseButton>
+            <AsyncButton @wait="wait(2000)">AsyncButton</AsyncButton>
         </div>
     </div>
 </template>
@@ -28,13 +29,20 @@
 <script>
 
 import BaseButton from '@/components/BaseButton.vue';
+import AsyncButton from '@/components/AsyncButton.vue';
 
 
 export default {
     name: 'HomePage',
     components: {
-        BaseButton
-  }
+        BaseButton,
+        AsyncButton
+  },
+    methods: {
+        async wait(time) {
+        await new Promise(resolve => setTimeout(resolve, time));
+        }
+    }
 }
 </script>
 

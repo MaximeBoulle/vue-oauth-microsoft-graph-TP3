@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: 'BaseButton',
+    name: 'AsyncButton',
     props: {
         disabled: {
             type: Boolean,
@@ -16,27 +16,32 @@ export default {
             type: String,
             default: 'primary',
         },
-
     },
-
     data() {
         return {
-            isDisabled: this.disabled
-        }
+            isDisabled: this.disabled 
+        };
     },
+    methods: {
+        async click() {
+            this.isDisabled = true;
+            await this.wait(2000);            
+            this.isDisabled = false;
+        },
+
+        async wait(time) {
+            await new Promise(resolve => setTimeout(resolve, time));
+        }
+    }
 };
 </script>
 
 <style scoped>
-
     .v-btn:hover {
         transform: scale(1.2);
-        animation-duration:2s
+        animation-duration: 2s;
     }
-
     .v-btn:focus {
         background: gray;
     }
-
-
 </style>
