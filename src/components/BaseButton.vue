@@ -26,12 +26,17 @@ export default {
     },
 
     methods: {
-        click() {
+        async click() {
             this.isDisabled = true;
-            setTimeout(() => {
-                this.isDisabled = false;
-            }, 2000);
-            }
+            
+            await this.wait(2000);
+            
+            this.isDisabled = false;
+        },
+        
+        wait(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
     }
 };
 </script>
