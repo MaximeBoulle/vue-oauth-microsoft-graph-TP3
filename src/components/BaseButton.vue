@@ -1,5 +1,5 @@
 <template>
-    <v-btn :disabled="disabled" :style="{ backgroundColor: color }" @click="click">
+    <v-btn :disabled="isDisabled" :style="{ backgroundColor: color }" @click="click">
         <slot></slot>
     </v-btn>
 </template>
@@ -21,13 +21,17 @@ export default {
 
     data() {
         return {
-            isDisabled: false
+            isDisabled: this.disabled
         }
     },
 
     methods: {
         click() {
-            this.isDisabled = true;        }
+            this.isDisabled = true;
+            setTimeout(() => {
+                this.isDisabled = false;
+            }, 2000);
+            }
     }
 };
 </script>
