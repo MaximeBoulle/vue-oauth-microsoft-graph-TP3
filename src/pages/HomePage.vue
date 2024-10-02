@@ -7,7 +7,7 @@
             <BaseButton disabled="true">BaseButton disabled</BaseButton>
             <BaseButton color="orange " >BaseButton with color props</BaseButton>
             <BaseButton color="red" >BaseButton with color props</BaseButton>
-            <AsyncButton @wait="wait(2000)">AsyncButton</AsyncButton>
+            <AsyncButton>AsyncButton</AsyncButton>
         </div>
     </div>
 </template>
