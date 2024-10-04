@@ -1,5 +1,5 @@
 <template>
-    <BaseButton :disabled="isDisabled" @click="click">
+    <BaseButton :disabled="isDisabled" @click.stop.prevent="handleClick">
         <slot></slot>
     </BaseButton>
 </template>
@@ -26,15 +26,13 @@ export default {
         };
     },
     methods: {
-        async click() {
+        handleClick() {
+            const originalOnClick = (this.$attrs || {}).onClick || (() => Promise.resolve());
             this.isDisabled = true;
-            await this.wait(2000);            
-            this.isDisabled = false;
+            originalOnClick().finally(() => {
+                this.isDisabled = false;
+            });
         },
-
-        async wait(time) {
-            await new Promise(resolve => setTimeout(resolve, time));
-        }
     },
     components: {
         BaseButton
