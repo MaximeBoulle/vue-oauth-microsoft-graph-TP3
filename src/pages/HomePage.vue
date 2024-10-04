@@ -7,7 +7,7 @@
             <BaseButton disabled="true">BaseButton disabled</BaseButton>
             <BaseButton color="orange " >BaseButton with color props</BaseButton>
             <BaseButton color="red" >BaseButton with color props</BaseButton>
-            <AsyncButton @click="wait(2000)">AsyncButton</AsyncButton>
+            <AsyncButton @click="wait(clickNumber*1000)">AsyncButton</AsyncButton>
         </div>
     </div>
 </template>
@@ -37,12 +37,19 @@ export default {
     components: {
         BaseButton,
         AsyncButton
-  },
+    },
     methods: {
         wait (ms) {
+            console.log(ms)
+            this.clickNumber++
             return new Promise(resolve => setTimeout(resolve, ms));
         }
-    }
+    },
+    data() {
+        return {
+            clickNumber: 0
+        };
+    },
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-    <BaseButton :disabled="isDisabled" @click.stop.prevent="handleClick">
+    <BaseButton :disabled="isDisabled" @click="handleClick">
         <slot></slot>
     </BaseButton>
 </template>
@@ -10,6 +10,7 @@ import BaseButton from '@/components/BaseButton.vue';
 
 export default {
     name: 'AsyncButton',
+    inheritAttrs: false,
     props: {
         disabled: {
             type: Boolean,

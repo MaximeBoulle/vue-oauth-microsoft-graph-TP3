@@ -1,5 +1,5 @@
 <template>
-    <v-btn :disabled="disabled" :style="{ backgroundColor: color }" @click="click">
+    <v-btn :disabled="disabled" :style="{ backgroundColor: color }">
         <slot></slot>
     </v-btn>
 </template>
